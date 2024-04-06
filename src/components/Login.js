@@ -18,7 +18,7 @@ function Login() {
         password,
       });
       if (response.data.status === "success") {
-        alert("Login success");
+        // alert("Login success");
         localStorage.setItem("diaryToken", response.data.token);
         localStorage.setItem("diaryUser", response.data.email);
         console.log(response.data);
