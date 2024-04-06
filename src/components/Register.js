@@ -81,13 +81,13 @@ function Register() {
                   </button>
                 </td>
               </tr>
-              <tr>
+              {/* <tr>
                 <td>Image</td>
                 <td>
                   <input type="file" name="image" onChange={handleImageChange} accept="image/*" className="registration-input" />
                   <img src={formData.image} alt="" className="registration-preview-image" />
                 </td>
-              </tr>
+              </tr> */}
               <tr>
                 <td colSpan="2">
                   <button type="submit" className="registration-submit-btn" disabled={!formData.name || !formData.email || !formData.pwd}>
