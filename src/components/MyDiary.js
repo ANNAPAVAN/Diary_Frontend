@@ -33,6 +33,10 @@ function MyDiary() {
         e.preventDefault();
         try {
             const response = await axios.post(`${process.env.REACT_APP_BACKEND}/api/auth/adddiary`, formData);
+            if(response.data.status === "submitted"){
+                alert("Today Already Submitted");
+                return;
+            }
             if (response.data.status === 'success') {
                 alert('Successfully added');
                 setFormData({

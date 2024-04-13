@@ -3,7 +3,8 @@ import axios from "axios";
 
 function DiaryEntries({ email }) {
   const [diaryEntries, setDiaryEntries] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
+  const todayDate = new Date().toLocaleDateString('en-IN', { year: 'numeric', month: '2-digit', day: '2-digit', timeZone: 'Asia/Kolkata' }).split('/').reverse().join('-');
+  const [searchTerm, setSearchTerm] = useState(todayDate);
 
   useEffect(() => {
     const email = localStorage.getItem("diaryUser");
@@ -19,9 +20,10 @@ function DiaryEntries({ email }) {
     fetchData();
   }, [email]);
 
-  const filteredEntries = diaryEntries.filter(diary => {
+  const filteredEntries = Array.isArray(diaryEntries) ? diaryEntries.filter(diary => {
     return diary.ddate.toLowerCase().includes(searchTerm.toLowerCase());
-  });
+}) : [];
+
 
   return (
     <div className="outer-body">
