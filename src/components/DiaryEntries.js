@@ -27,7 +27,7 @@ function DiaryEntries({ email }) {
 
   return (
     <div className="outer-body">
-    <div className="diary-entries-container">
+    <div className="diary-entries-container"> 
       <h2>Diary Entries</h2>
       <input
         type="date"
